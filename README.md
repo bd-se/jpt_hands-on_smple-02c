@@ -9,16 +9,24 @@
 - `todo view` — タスク一覧を表示
 - `todo complete <id>` — 指定したタスクを完了にする
 
-## ビルド
+## Build
+### Requirement
+
 事前に `sqlite3` の開発ライブラリが必要です（Ubuntu: `sudo apt install libsqlite3-dev`）。
 
-ビルド:
+### Pre-build:
+
+```sh
+git clone https://github.com/bd-se/jpt_hands-on_smpl-02c
+cd jpt_hands-on_smpl-02c
+
+### build command:
 
 ```sh
 make
 ```
 
-実行例:
+### Usage:
 
 ```sh
 ./bin/todo add "short task"
@@ -26,7 +34,8 @@ make
 ./bin/todo complete 1
 ```
 
-## Coverity
+## Hands-On
+### Coverity
 
 ```sh
 cov-configure --gcc
@@ -34,7 +43,7 @@ cov-build --dir <imdir> make
 cov-analyze --dir <imdir>
 cov-commit-defects --dir <imdir> --stream <stream> --url <https://host:port> --user <username> --password <password>
 ```
-
+### Black
 ## 脆弱性について
 - `todo add` 実装内で**固定長バッファ (`char name[32]`) に対する `strcpy` の使用**があり、長い入力でバッファオーバーフローが発生します。これはSAST検出練習用に**意図的**に入れています。
 - 将来的に SQL インジェクションやフォーマット文字列脆弱性のサンプルも追加する予定です。
