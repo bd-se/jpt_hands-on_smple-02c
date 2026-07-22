@@ -19,6 +19,7 @@
 ```sh
 git clone https://github.com/bd-se/jpt_hands-on_smpl-02c
 cd jpt_hands-on_smpl-02c
+mkdir bin
 ```
 
 ### build command:
