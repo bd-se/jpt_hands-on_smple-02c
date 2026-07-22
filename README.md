@@ -10,11 +10,11 @@
 - `todo complete <id>` — 指定したタスクを完了にする
 
 ## Build
-### Requirement
+### Requirement:
 
 事前に `sqlite3` の開発ライブラリが必要です（Ubuntu: `sudo apt install libsqlite3-dev`）。
 
-### Pre-build:
+### Pre build:
 
 ```sh
 git clone https://github.com/bd-se/jpt_hands-on_smpl-02c
@@ -22,7 +22,7 @@ cd jpt_hands-on_smpl-02c
 mkdir bin
 ```
 
-### build command:
+### Build command:
 
 ```sh
 make
@@ -45,8 +45,11 @@ cov-build --dir <imdir> make
 cov-analyze --dir <imdir>
 cov-commit-defects --dir <imdir> --stream <stream> --url <https://host:port> --user <username> --password <password>
 ```
-### Black
-## 脆弱性について
+### Black Duck (Detect)
+
+
+## 補足
+
 - `todo add` 実装内で**固定長バッファ (`char name[32]`) に対する `strcpy` の使用**があり、長い入力でバッファオーバーフローが発生します。これはSAST検出練習用に**意図的**に入れています。
 - 将来的に SQL インジェクションやフォーマット文字列脆弱性のサンプルも追加する予定です。
 
