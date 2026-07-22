@@ -26,6 +26,15 @@ make
 ./bin/todo complete 1
 ```
 
+## Coverity
+
+```sh
+cov-configure --gcc
+cov-build --dir <imdir> make
+cov-analyze --dir <imdir>
+cov-commit-defects --dir <imdir> --stream <stream> --url <https://host:port> --user <username> --password <password>
+```
+
 ## 脆弱性について
 - `todo add` 実装内で**固定長バッファ (`char name[32]`) に対する `strcpy` の使用**があり、長い入力でバッファオーバーフローが発生します。これはSAST検出練習用に**意図的**に入れています。
 - 将来的に SQL インジェクションやフォーマット文字列脆弱性のサンプルも追加する予定です。
